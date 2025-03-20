@@ -1,0 +1,169 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 35 30% 98%;
+    --foreground: 30 10% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 30 10% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 10% 15%;
+
+    --primary: 30 25% 55%;
+    --primary-foreground: 30 30% 98%;
+
+    --secondary: 195 40% 74%;
+    --secondary-foreground: 195 50% 20%;
+
+    --muted: 30 10% 94%;
+    --muted-foreground: 30 10% 40%;
+
+    --accent: 195 30% 85%;
+    --accent-foreground: 195 50% 20%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 15% 90%;
+    --input: 30 15% 90%;
+    --ring: 30 25% 55%;
+
+    --radius: 0.5rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 30 10% 15%;
+    --sidebar-primary: 30 25% 55%;
+    --sidebar-primary-foreground: 30 30% 98%;
+    --sidebar-accent: 30 10% 94%;
+    --sidebar-accent-foreground: 30 10% 25%;
+    --sidebar-border: 30 15% 90%;
+    --sidebar-ring: 30 25% 55%;
+  }
+
+  .dark {
+    --background: 30 10% 10%;
+    --foreground: 30 15% 90%;
+
+    --card: 30 10% 12%;
+    --card-foreground: 30 15% 90%;
+
+    --popover: 30 10% 12%;
+    --popover-foreground: 30 15% 90%;
+
+    --primary: 30 25% 55%;
+    --primary-foreground: 30 30% 98%;
+
+    --secondary: 195 40% 30%;
+    --secondary-foreground: 30 30% 98%;
+
+    --muted: 30 10% 20%;
+    --muted-foreground: 30 15% 70%;
+
+    --accent: 195 30% 25%;
+    --accent-foreground: 30 30% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 30 30% 98%;
+
+    --border: 30 15% 20%;
+    --input: 30 15% 20%;
+    --ring: 30 25% 55%;
+
+    --sidebar-background: 30 10% 12%;
+    --sidebar-foreground: 30 15% 90%;
+    --sidebar-primary: 30 25% 55%;
+    --sidebar-primary-foreground: 30 30% 98%;
+    --sidebar-accent: 30 10% 20%;
+    --sidebar-accent-foreground: 30 15% 90%;
+    --sidebar-border: 30 15% 20%;
+    --sidebar-ring: 30 25% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-sans tracking-tight;
+  }
+
+  /* Smoother scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-muted/50;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/30 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/50;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/80 dark:bg-stone-dark/80 backdrop-blur-md border border-white/20 dark:border-stone-dark/20 shadow-glass;
+  }
+  
+  .btn-primary {
+    @apply px-6 py-2.5 rounded-md bg-primary text-primary-foreground font-medium transition-all duration-300 hover:opacity-90 active:scale-[0.98];
+  }
+  
+  .btn-secondary {
+    @apply px-6 py-2.5 rounded-md bg-secondary text-secondary-foreground font-medium transition-all duration-300 hover:opacity-90 active:scale-[0.98];
+  }
+  
+  .btn-outline {
+    @apply px-6 py-2.5 rounded-md border border-primary text-primary font-medium transition-all duration-300 hover:bg-primary/10 active:scale-[0.98];
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .page-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Custom animation classes */
+.reveal-element {
+  @apply opacity-0 translate-y-10 transition-all duration-700 ease-out;
+}
+
+.reveal-element.active {
+  @apply opacity-100 translate-y-0;
+}
+
+.stagger-item {
+  @apply opacity-0 transition-opacity duration-500;
+}
+
+.stagger-delay-1 { transition-delay: 100ms; }
+.stagger-delay-2 { transition-delay: 200ms; }
+.stagger-delay-3 { transition-delay: 300ms; }
+.stagger-delay-4 { transition-delay: 400ms; }
+.stagger-delay-5 { transition-delay: 500ms; }
